@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import MenuButton from '../components/Button';
 import HeaderLogo from '../components/HeaderLogo';
 
 // screens
@@ -12,7 +13,7 @@ import Search from '../screens/Search';
 
 // Home Stack
 const HomeStack = createNativeStackNavigator();
-function HomeStackNavigator() {
+function HomeStackNavigator(props) {
   return (
     <HomeStack.Navigator
       initialRouteName="Home"
@@ -40,10 +41,11 @@ function HomeStackNavigator() {
             />
           ),
           headerLeft: () => (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title="Left"
+            <MenuButton
+              onPress={() => props.navigation.toggleDrawer()}
               color="#fff"
+              name={'menu-outline'}
+              size={30}
             />
           ),
         }}

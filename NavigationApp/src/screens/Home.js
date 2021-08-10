@@ -65,6 +65,7 @@ function Home({navigation}) {
         />
 
         <Button title="Start title timer" onPress={timer} />
+        <Button title="Open Drawer" onPress={() => navigation.toggleDrawer()} />
       </View>
     </View>
   );
