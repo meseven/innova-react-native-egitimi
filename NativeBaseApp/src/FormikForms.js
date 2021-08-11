@@ -1,11 +1,21 @@
 import React from 'react';
-import {SafeAreaView, Text, TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, Text, StyleSheet} from 'react-native';
 
 import {useFormik} from 'formik';
-import {Button} from 'native-base';
+import {FormControl, Input, Stack, Button} from 'native-base';
+
+import validations from './validations';
 
 const FormikForms = () => {
-  const {values, handleChange, handleSubmit} = useFormik({
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    isValid,
+    errors,
+    touched,
+  } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -16,38 +26,76 @@ const FormikForms = () => {
 
       bag.resetForm();
     },
+    validationSchema: validations,
+    validateOnMount: true,
   });
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>{JSON.stringify(values)}</Text>
-      <TextInput
-        onChangeText={handleChange('email')}
-        placeholder="e-mail"
-        style={styles.input}
-        value={values.email}
-        autoCapitalize={'none'}
-        keyboardType="email-address"
-        autoCorrect={false}
-      />
+      <Text style={styles.title}>Sign Up</Text>
 
-      <TextInput
-        onChangeText={handleChange('password')}
-        placeholder="password"
-        style={styles.input}
-        value={values.password}
-        secureTextEntry
-      />
+      <FormControl isInvalid={errors.email && touched.email} mt={5}>
+        <Stack>
+          <FormControl.Label>E-mail</FormControl.Label>
+          <Input
+            p={2}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            value={values.email}
+            autoCapitalize={'none'}
+            keyboardType="email-address"
+            autoCorrect={false}
+          />
 
-      <TextInput
-        onChangeText={handleChange('passwordConfirm')}
-        placeholder="password confirm"
-        style={styles.input}
-        value={values.passwordConfirm}
-        secureTextEntry
-      />
+          {errors.email && touched.email && (
+            <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>
+          )}
+        </Stack>
+      </FormControl>
 
-      <Button onPress={handleSubmit}>Submit</Button>
+      <FormControl isInvalid={errors.password && touched.password} mt={5}>
+        <Stack>
+          <FormControl.Label>Password</FormControl.Label>
+          <Input
+            p={2}
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            value={values.password}
+            secureTextEntry
+          />
+
+          {errors.password && touched.password && (
+            <FormControl.ErrorMessage>
+              {errors.password}
+            </FormControl.ErrorMessage>
+          )}
+        </Stack>
+      </FormControl>
+
+      <FormControl
+        isInvalid={errors.passwordConfirm && touched.passwordConfirm}
+        mt={5}>
+        <Stack>
+          <FormControl.Label>Password Confirm</FormControl.Label>
+          <Input
+            p={2}
+            onChangeText={handleChange('passwordConfirm')}
+            onBlur={handleBlur('passwordConfirm')}
+            value={values.passwordConfirm}
+            secureTextEntry
+          />
+
+          {errors.passwordConfirm && touched.passwordConfirm && (
+            <FormControl.ErrorMessage>
+              {errors.passwordConfirm}
+            </FormControl.ErrorMessage>
+          )}
+        </Stack>
+      </FormControl>
+
+      <Button onPress={handleSubmit} disabled={!isValid} mt={5}>
+        Submit
+      </Button>
     </SafeAreaView>
   );
 };
@@ -57,12 +105,8 @@ const styles = StyleSheet.create({
     margin: 10,
     flex: 1,
   },
-  input: {
-    padding: 10,
-    borderWidth: 2,
-    borderColor: '#666',
-    fontSize: 20,
-    marginVertical: 10,
+  title: {
+    fontSize: 32,
   },
 });
 
