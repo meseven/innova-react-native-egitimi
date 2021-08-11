@@ -47,7 +47,7 @@ const App = () => {
   };
 
   return (
-    <NativeBaseProvider>
+    <>
       <Center flex={1}>
         <Box>Hello world</Box>
         <Button
@@ -115,7 +115,7 @@ const App = () => {
           </Modal.Content>
         </Modal>
       </Center>
-    </NativeBaseProvider>
+    </>
   );
 };
 

@@ -2,8 +2,17 @@
  * @format
  */
 
+import React from 'react';
 import {AppRegistry} from 'react-native';
-import App from './App';
+import {NativeBaseProvider} from 'native-base';
+// import App from './App';
+import FormikForms from './src/FormikForms';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+const AppRoot = () => (
+  <NativeBaseProvider>
+    <FormikForms />
+  </NativeBaseProvider>
+);
+
+AppRegistry.registerComponent(appName, () => AppRoot);
