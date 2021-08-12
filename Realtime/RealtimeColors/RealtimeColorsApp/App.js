@@ -34,7 +34,7 @@ const App = () => {
   };
 
   const onColorChange = color => {
-    setActiveColor({color});
+    setActiveColor({...activeColor, color});
   };
 
   const login = () => {
@@ -48,7 +48,6 @@ const App = () => {
       style={[styles.container, {backgroundColor: activeColor.color}]}>
       {isLogin && (
         <View style={styles.panel}>
-          <Text>{JSON.stringify(activeColor)}</Text>
           <Text style={styles.activeColor}>{activeColor.color}</Text>
           {activeColor.owner && (
             <Text style={styles.activeColor}>from {activeColor.owner}</Text>
