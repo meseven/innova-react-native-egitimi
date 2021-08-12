@@ -12,10 +12,10 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('a user connected');
 
-  socket.on('new-color', (color) => {
-    console.log('new color received ', color);
+  socket.on('new-color', (data) => {
+    console.log('new color received ', data);
 
-    socket.broadcast.emit('change-color', color);
+    socket.broadcast.emit('change-color', data);
   });
 });
 
