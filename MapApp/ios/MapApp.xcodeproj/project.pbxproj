@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		271B87496E3BEB7DF3AA6F83 /* libPods-MapApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5FBA48D1BB540CE701A63A4 /* libPods-MapApp.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8E321A1E26C4FD2000A137B4 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E321A1D26C4FD2000A137B4 /* SplashScreen.storyboard */; };
 		C7C694FEC74F998BCCC9BF82 /* libPods-MapApp-MapAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A041E0AF6B8F4D66E675F33E /* libPods-MapApp-MapAppTests.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		16D6403C2BFBF6B7BE4A68B6 /* Pods-MapApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapApp.debug.xcconfig"; path = "Target Support Files/Pods-MapApp/Pods-MapApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7AA01C3EAFF95B6492BBC898 /* Pods-MapApp-MapAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapApp-MapAppTests.release.xcconfig"; path = "Target Support Files/Pods-MapApp-MapAppTests/Pods-MapApp-MapAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MapApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8E321A1D26C4FD2000A137B4 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		A041E0AF6B8F4D66E675F33E /* libPods-MapApp-MapAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MapApp-MapAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B921D10509D8E663C4F29C62 /* Pods-MapApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapApp.release.xcconfig"; path = "Target Support Files/Pods-MapApp/Pods-MapApp.release.xcconfig"; sourceTree = "<group>"; };
 		C5FBA48D1BB540CE701A63A4 /* libPods-MapApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MapApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				8E321A1D26C4FD2000A137B4 /* SplashScreen.storyboard */,
 			);
 			name = MapApp;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				8E321A1E26C4FD2000A137B4 /* SplashScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
