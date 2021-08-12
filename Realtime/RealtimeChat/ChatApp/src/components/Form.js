@@ -10,6 +10,10 @@ const Form = () => {
   const {setMessages} = useChat();
 
   const onSubmit = () => {
+    if (!message) {
+      return false;
+    }
+
     setMessages(prevState => [...prevState, {text: message, isFromMe: true}]);
     sendMessage(message);
     setMessage('');
