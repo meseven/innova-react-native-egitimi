@@ -1,15 +1,19 @@
-import React, {useContext} from 'react';
-import {View, Text} from 'react-native';
+import React from 'react';
+import {View, Text, Button} from 'react-native';
 
-import ThemeContext from '../context/ThemeContext';
+import {useTheme} from '../context/ThemeContext';
 
 const Settings = () => {
-  const {theme, setTheme} = useContext(ThemeContext);
+  const {theme, setTheme} = useTheme();
 
   return (
     <View>
       <Text>Settings</Text>
       <Text>Theme: {theme}</Text>
+      <Button
+        title={`Change theme - Active Theme(${theme})`}
+        onPress={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      />
     </View>
   );
 };

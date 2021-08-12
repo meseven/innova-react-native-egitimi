@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {View, Button} from 'react-native';
 
-import ThemeContext from '../context/ThemeContext';
+import {useTheme} from '../context/ThemeContext';
 
 const ThemeSwitchButton = () => {
-  const {theme, setTheme} = useContext(ThemeContext);
+  const {theme, setTheme} = useTheme();
 
   return (
     <View>
