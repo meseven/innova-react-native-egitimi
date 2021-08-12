@@ -1,127 +1,13 @@
-import React, {createContext, useContext} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 
 const ChatContext = createContext();
 
-const DATA = [
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-  {
-    title: 'First Item',
-  },
-  {
-    title: 'Second Item',
-  },
-  {
-    title: 'Third Item',
-  },
-];
-
 export const ChatProvider = ({children}) => {
+  const [messages, setMessages] = useState([]);
+
   const values = {
-    messages: DATA,
+    messages,
+    setMessages,
   };
 
   return <ChatContext.Provider value={values}>{children}</ChatContext.Provider>;

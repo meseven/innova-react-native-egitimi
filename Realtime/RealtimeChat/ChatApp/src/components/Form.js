@@ -1,12 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 
+import {sendMessage} from '../../socketApi';
+import {useChat} from '../context/ChatContext';
+
 const Form = () => {
+  const [message, setMessage] = useState('');
+
+  const {setMessages} = useChat();
+
+  const onSubmit = () => {
+    setMessages(prevState => [...prevState, {text: message, isFromMe: true}]);
+    sendMessage(message);
+    setMessage('');
+  };
+
   return (
     <TextInput
       placeholder="Enter message"
+      autoCorrect={false}
       style={styles.textInput}
       returnKeyType="send"
+      onEndEditing={onSubmit}
+      value={message}
+      onChangeText={setMessage}
     />
   );
 };

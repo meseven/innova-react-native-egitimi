@@ -11,6 +11,14 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+
+  socket.on('new-message', (message) => {
+    console.log('New message received', message);
+
+    socket.broadcast.emit('receive-message', message);
+  });
+
+  socket.on('disconnect', () => console.log('a user disconnected!'));
 });
 
 server.listen(3000, () => {
