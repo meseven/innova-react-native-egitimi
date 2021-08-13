@@ -1,0 +1,35 @@
+{
+  "name": "TheRickAndMortyApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@apollo/client": "^3.4.7",
+    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native-stack": "^6.0.5",
+    "graphql": "^15.5.1",
+    "react": "17.0.1",
+    "react-native": "0.64.2",
+    "react-native-safe-area-context": "^3.3.0",
+    "react-native-screens": "^3.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/runtime": "^7.15.3",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "babel-jest": "^27.0.6",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
