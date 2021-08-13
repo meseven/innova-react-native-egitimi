@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-import {useQuery} from '@apollo/client';
+import {useSubscription} from '@apollo/client';
 import {GET_POSTS} from './queries';
 
 import Loading from '../../components/Loading';
@@ -9,7 +9,7 @@ import Error from '../../components/Error';
 import PostList from './PostList';
 
 const Posts = () => {
-  const {loading, error, data} = useQuery(GET_POSTS);
+  const {loading, error, data} = useSubscription(GET_POSTS);
 
   if (loading) {
     return <Loading size="large" />;

@@ -5,13 +5,15 @@ import Loading from '../../components/Loading';
 import Error from '../../components/Error';
 
 import Comments from './Comments';
-import {useQuery} from '@apollo/client';
+import CommentForm from './CommentForm';
+
+import {useQuery, useSubscription} from '@apollo/client';
 import {GET_POST} from './queries';
 
 const PostDetail = ({route}) => {
   const {id} = route.params;
 
-  const {loading, error, data} = useQuery(GET_POST, {
+  const {loading, error, data} = useSubscription(GET_POST, {
     variables: {
       id,
     },
@@ -36,6 +38,8 @@ const PostDetail = ({route}) => {
         count={posts_by_pk.comments_aggregate.aggregate.count}
         postId={id}
       />
+
+      <CommentForm postId={id} />
     </ScrollView>
   );
 };

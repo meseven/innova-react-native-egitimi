@@ -1,23 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 import CommentsList from './CommentsList';
-import {useLazyQuery} from '@apollo/client';
+import {useLazyQuery, useSubscription} from '@apollo/client';
 import {GET_POST_COMMENTS} from './queries';
 
 const Comments = ({count, postId}) => {
-  const [getComments, {loading, error, data}] = useLazyQuery(
-    GET_POST_COMMENTS,
-    {
-      variables: {
-        id: postId,
-      },
+  const {loading, error, data} = useSubscription(GET_POST_COMMENTS, {
+    variables: {
+      id: postId,
     },
-  );
+  });
+
+  // useEffect(() => {
+  //   const test = subscribeToMore({
+  //     updateQuery: (data1, data2) => {
+  //       console.log(data1);
+  //       console.log(data2);
+  //     },
+  //   });
+  // }, []);
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={getComments}>
+      <TouchableOpacity>
         <Text style={styles.title}>Comments ({count})</Text>
       </TouchableOpacity>
 
