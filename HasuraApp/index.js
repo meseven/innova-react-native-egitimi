@@ -4,10 +4,14 @@ import App from './App';
 import {name as appName} from './app.json';
 
 import {NavigationContainer} from '@react-navigation/native';
+import {ApolloProvider} from '@apollo/client';
+import client from './apollo';
 
 const AppRoot = () => (
   <NavigationContainer>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </NavigationContainer>
 );
 
