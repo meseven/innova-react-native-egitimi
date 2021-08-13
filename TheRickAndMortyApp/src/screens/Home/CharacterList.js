@@ -1,14 +1,29 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 
-const Item = ({item}) => (
-  <View style={styles.item}>
-    <Image source={{uri: item.image}} style={styles.img} />
-    <Text style={styles.title}>{item.name}</Text>
-  </View>
-);
+import {useNavigation} from '@react-navigation/native';
 
-const CharacterList = ({data}) => {
+const Item = ({item}) => {
+  const navigation = useNavigation();
+
+  return (
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => navigation.navigate('Detail', {id: item.id})}>
+      <Image source={{uri: item.image}} style={styles.img} />
+      <Text style={styles.title}>{item.name}</Text>
+    </TouchableOpacity>
+  );
+};
+
+const CharacterList = ({data, navigation}) => {
   const {
     characters: {results},
   } = data;

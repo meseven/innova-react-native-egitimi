@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 import Home from './src/screens/Home';
+import Detail from './src/screens/Detail';
 
 const App = () => {
   return (
@@ -15,6 +16,11 @@ const App = () => {
           name="Home"
           component={Home}
           options={{title: 'Characters'}}
+        />
+        <Stack.Screen
+          name="Detail"
+          component={Detail}
+          options={{title: 'Detail'}}
         />
       </Stack.Navigator>
     </>
